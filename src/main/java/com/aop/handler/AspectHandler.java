@@ -1,14 +1,8 @@
 package com.aop.handler;
 
-import com.aop.model.Account;
-import com.aop.service.impl.AccountServiceImpl;
-
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class AspectHandler implements InvocationHandler {
     private Object targetObject;

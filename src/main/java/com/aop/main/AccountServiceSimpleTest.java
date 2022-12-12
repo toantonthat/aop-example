@@ -1,15 +1,13 @@
 package com.aop.main;
 
-import com.aop.handler.AopProxy;
-import com.aop.handler.LoggingAspect;
 import com.aop.model.Account;
 import com.aop.service.AccountService;
 import com.aop.service.impl.AccountServiceImpl;
 
-public class AspectOrientedProgrammingInJdkExample {
+public class AccountServiceSimpleTest {
     public static void main(String[] args) {
-        AccountService proxy = AopProxy.getProxy(new LoggingAspect(new AccountServiceImpl()));
+        AccountService accountService = new AccountServiceImpl();
         Account account = new Account("ToanTT", "USD", 50000);
-        proxy.addAccount(account);
+        accountService.addAccount(account);
     }
 }

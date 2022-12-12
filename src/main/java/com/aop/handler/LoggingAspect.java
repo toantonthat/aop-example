@@ -15,8 +15,8 @@ public class LoggingAspect extends AspectHandler {
 
     @Override
     boolean before(Object targetObject, Method method, Object[] args) {
-        initializeAccount();
         System.out.printf("Handling before actual method `%s` execute %n", method.getName());
+        initializeAccount();
         return true;
     }
 
@@ -34,6 +34,7 @@ public class LoggingAspect extends AspectHandler {
     }
 
     private void initializeAccount() {
+        System.out.println("initialize account data");
         try {
             Object targetObject = getTargetObject();
             Field fieldList = ((AccountServiceImpl) targetObject).getClass().getDeclaredField("accountList");

@@ -12,6 +12,7 @@ public class AccountServiceImpl implements AccountService {
     public void addAccount(Account account) {
         System.out.println("add account " + account);
         accountList.add(account);
+        System.out.println("account size is " + accountList.size());
     }
 
     @Override
@@ -22,12 +23,17 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account updateAccount(Account account) {
-        return null;
+        accountList.forEach(updateAccount -> {
+            if (updateAccount.getOwner().equals(account.getOwner())) {
+                updateAccount.setCurrency(account.getCurrency());
+                updateAccount.setBalance(account.getBalance());
+            }
+        });
+        return account;
     }
 
     @Override
     public int size() {
-        System.out.println("account size is " + accountList.size());
         return accountList.size();
     }
 }
